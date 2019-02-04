@@ -1,0 +1,207 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+@mixin flex($direction) {
+  display: flex;
+  flex-direction: $direction;
+}
+
+html,
+body {
+  height: 100%;
+  @include flex(column);
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  -webkit-text-size-adjust: 100%; //fix iOS first loading with bigger fonts
+}
+a {
+  color: black;
+}
+.text-center {
+  text-align: center;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 5px 5px 0 5px;
+}
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+@mixin task-priority($color)  {
+  border-left-style: solid;
+  border-left-color: $color;
+  border-left-width: 15px;
+
+}
+.task-priority--1 {
+  @include task-priority(#D50000);
+}
+.task-priority-0 {
+  @include task-priority(#0277BD);
+}
+.task-priority-1 {
+  @include task-priority(#FFC107);
+}
+.task-priority-2 {
+  @include task-priority(#004D40);
+}
+.task-priority-3 {
+  @include task-priority(#4CAF50);
+}
+.task-priority-4 {
+  @include task-priority(#69F0AE);
+}
+
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-action {
+  margin: 5px;
+}
+
+.task-done  {
+  text-decoration: line-through;
+}
+
+.loading-indicator {
+  @include flex(column);
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.login {
+  h2 {
+    margin-bottom: 15px;
+  }
+
+  .login-box {
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+}
+
+.block-tasks {
+  overflow-y: auto;
+  height: 63vh;
+}
+
+.offline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.menu-list{
+  @include flex(column);
+  justify-content: space-between;
+}
+
+.person-name-subscribe {
+  @include flex(row);
+}
+
+/**
+
+Home Screen
+
+*/
+
+.img-home {
+  margin-top: 15%;
+  width: 70%;
+  height: 70%;
+}
+
+.home-content {
+  @include flex(column);
+  align-items: center;
+}
+
+.home-buttons {
+  @include flex(row);
+  justify-content: space-around;
+  margin-top: 30px;
+  align-items: center
+}
+
+.home-footer {
+  margin-top: 100%;
+}
+
+
+/**
+
+ Image Component
+
+*/
+
+.img-container{
+  display: flex;
+  flex-grow: inherit;
+}
+
+
+.img-content {
+  @include flex(column);
+  justify-content: center;
+  align-items: center;
+}
+
+.img-content-no-task {
+  @include flex(column);
+  flex-direction: initial;
+  align-content: center;
+  align-items: center;
+
+}
+
+.img-no-task {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.img-image {
+  width: 30%;
+  height: 30%;
+}
+
+/*
+  Ajusting Profile
+*/
+
+.profile-container-radio-date {
+  @include flex(row);
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.profile-radio-group { 
+  @include flex(row);
+  flex-wrap: nowrap;
+}
+
+
+.profile-font-gender p {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 0.8rem;
+  font-weight: 0;
+  padding: 0;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+ 
+}
