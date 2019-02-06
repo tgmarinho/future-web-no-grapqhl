@@ -8,7 +8,7 @@ import { default as Home } from '@material-ui/icons/Home';
 import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 
 export const Menu = ({ open, toggleMenu, client, history }) => (
-  <Drawer open={true} onClose={toggleMenu(true)}>
+  <Drawer open={false} onClose={toggleMenu(true)}>
     <List className="menu-list">
       <div>
         <Link to="/home" style={{ textDecoration: 'none' }}>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { TasksContainer } from '../taskList/TasksContainer';
-import { AddTaskContainer } from '../addTask/AddTaskContainer';
+import { TasksContainer } from '../task/TasksContainer';
+import { AddTask } from '../task/AddTask';
 import { LoginContainer } from '../login/LoginContainer';
 // import { loggedUserQuery } from '../../core/user/userQueries';
 import { HomeContainer } from '../home/HomeContainer';
@@ -23,7 +23,7 @@ export const Routes = () => (
     <Route exact path="/" component={TasksContainer} />
     <Route path="/home" component={HomeContainer} />
     <Route path="/login" component={LoginContainer} />
-    <Route path="/add" component={AddTaskContainer} />
-    <Route path="/edit/:_id" component={AddTaskContainer} />
+    <Route path="/add" component={AddTask} />
+    <Route path="/edit/:_id" component={AddTask} />
   </Switch>
 );

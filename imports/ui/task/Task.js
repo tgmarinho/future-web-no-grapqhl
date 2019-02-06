@@ -4,20 +4,18 @@ import { ListItem, ListItemText, Checkbox, Paper } from '@material-ui/core';
 import { DeleteForever } from '@material-ui/icons';
 import { indigo } from '@material-ui/core/colors/index';
 import { compose } from 'recompose';
-import PropTypes from 'prop-types';
 import moment from 'moment';
 
-const handleChange = ({ item: { _id }, flipTask, client }) => () => {
-  flipTask({ variables: { _id } }).then(
-    // eslint-disable-next-line no-unused-vars
-    ({ data: { flipTask: { taskId } } }) => {
-      // TODO do something to alert the user that task is done
+const handleChange = ({ item: { _id }}) => () => {
 
-      // TODO when we have the cache working correctly after an update we can remove this
-      // https://github.com/CodeFTW/meteor-react-latest/issues/34
-      client.resetStore();
-    }
-  );
+  try {
+    Meteor.call('flipTask', _id);
+    // success
+    // redirect - refreash
+  } catch (e) {
+    throw new Error('opaaa deu pau aqui', e);
+  }
+
 };
 
 const handleDays = date => {
@@ -75,8 +73,4 @@ export const Task = enhance(props => {
   );
 });
 
-Task.contextTypes = {
-  router: PropTypes.shape({
-    history: PropTypes.object.isRequired,
-  }),
-};
+

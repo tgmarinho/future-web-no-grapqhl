@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
-import { Users } from '../../collections/UsersCollection';
+import { Users } from '../../api/collections/UsersCollection';
 
 // Meteor.startup(function() {
 //   Accounts.loginServiceConfiguration.upsert(
